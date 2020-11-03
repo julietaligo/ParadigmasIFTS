@@ -54,15 +54,15 @@ def guardar_planilla(archivo, campos):
             sobreescribir = input(f"\nEl archivo existe. Desea sobreescribir? si/no: ")
             
             if sobreescribir == "si":
-                with open(archivo, "w", newline="") as file:
-                    planilla = csv.writer(file)
-                    planilla.writerows(lista_empleados)
-                    print("\nEl archivo se guardo correctamente.")
-            else:
                 with open(archivo, "a", newline="") as file:
                     planilla = csv.writer(file)
                     planilla.writerows(lista_empleados)
                     print("\nEl archivo se modifico correctamente.")
+            else:
+                with open(archivo, "w", newline="") as file:
+                    planilla = csv.writer(file)
+                    planilla.writerows(lista_empleados)
+                    print("\nEl archivo se guardo correctamente.")
         else:
             with open(archivo, "w", newline="") as file:
                 planilla = csv.writer(file)
