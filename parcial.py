@@ -88,18 +88,14 @@ def vacaciones_disponibles(archivo, archivo_vacaciones_tomadas):
         with open(archivo_vacaciones_tomadas, "r", newline="") as file:
             lectura_csv = csv.reader(file)
             for linea in lectura_csv:
-                #print(f"{legajo} {linea[0]}")
                 if legajo == linea[0]:
-                    #print("ACUMULO")
                     cont+= 1
-            #print(f"Contador: {cont}")
         with open(archivo, "r", newline="") as file:
             lectura_csv = csv.reader(file)
             for empleado in lectura_csv:
                 if legajo == empleado[0]:
                     total_vacaciones = int(empleado[3])
-                #print(empleado)
-        print(f"\nLegajo: {empleado[0]} Total Vacaciones: {empleado[3]} Total Vacaciones Disponibles: {total_vacaciones - cont}")
+        print(f"\nLegajo {empleado[0]}: {empleado[2]} {empleado[1]}, le restan {total_vacaciones - cont} dias de vacaciones.")
         return
     except IOError:
         print("\nOcurrio un error con el archivo.")
