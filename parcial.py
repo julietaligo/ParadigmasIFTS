@@ -105,7 +105,6 @@ def vacaciones_disponibles(archivo, archivo_vacaciones_tomadas):
         with open(archivo_vacaciones_tomadas, "r", newline="") as file:
             lectura_csv_1 = csv.reader(file)
             for linea in lectura_csv_1:
-                print(f"LEGAJO {legajo} LINEA {linea[0]}")
                 if legajo == linea[0]:
                     cont+= 1
         with open(archivo, "r", newline="") as file:
